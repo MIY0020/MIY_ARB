@@ -1,0 +1,20 @@
+[Unit]
+Description=Funding Rate Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/bot-trade
+Environment=PATH=/home/ubuntu/bot-trade/venv/bin
+ExecStart=/home/ubuntu/bot-trade/venv/bin/python bot.py
+Restart=always
+RestartSec=10
+
+# Логирование
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=funding-bot
+
+[Install]
+WantedBy=multi-user.target
